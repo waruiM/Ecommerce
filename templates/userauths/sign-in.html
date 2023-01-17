@@ -1,0 +1,47 @@
+<!--
+    method=POST is used when we are dealing with sencitive data(does not return any set value in the path)
+    method=GET used for search funcionality as it(returns forms value in the path )
+ -->
+ <!--start of html-->
+ {% extends 'partials/base.html'%}
+ {% load static%}
+ {% block content %}
+ <div class="user">
+         <header class="user__header">
+             <img src="{% static 'img/logo1.png' %}" ,alt="" />
+ 
+             <h1 class="user__title">Log-in form</h1>
+ 
+             <h3 class="user__title">Your one stop online shopping patner</h3>
+ 
+             <!-- <link rel="stylesheet" href="{% static 'css/t2.css'%}" type="text/css"> -->
+             <link rel="stylesheet" href="{% static 'css/mess.css'%}" type="text/css">
+
+         </header>
+     <!-- <script>
+         const button = document.querySelector('.btn')
+         const form   = document.querySelector('.form')
+ 
+         button.addEventListener('click', function() {
+         form.classList.add('form--no') 
+         });
+     </script> -->
+
+
+     <form class="form" method="post" method="POST" >
+         <!-- generete csrf token -->
+        {%csrf_token%}
+        
+        <div class="form__group">
+            <input type="email" name= "email" placeholder="Email" class="form__input" />
+        </div>
+        
+        <div class="form__group">
+            <input type="password" name="password" placeholder="Password" class="form__input" />
+        </div>
+       <!-- {{form}} -->
+         <button class="btn" type="submit">login</button>
+     </form>
+ </div>
+ {% endblock content %}
+

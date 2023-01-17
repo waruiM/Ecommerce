@@ -1,0 +1,23 @@
+.alert-success{
+    margin-top: 15px;
+    width: 100%;
+    padding: 13px;
+    background-color: #02ff4149;
+    font-family: "Roboto";
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    border: 1px solid rgb(43, 230, 6);
+}
+.alert-warning{
+    margin-top: 15px;
+    width: 100%;
+    padding: 13px;
+    background-color: #ff000049;
+    font-family: "Roboto";
+    border-radius: 15px;
+    color: rgb(36, 36, 36);
+    font-size: 15px;
+    border: 1px solid rgb(255, 2, 2);
+    animation: arrive 500ms ease-in 0.9s forwards;
+}
