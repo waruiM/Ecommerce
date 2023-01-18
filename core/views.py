@@ -35,7 +35,8 @@ def product_list_view(request):
     }
     return render (request,'core/product-list.html',context)
 
-#####creating categories view
+        ###############creating categories view##################
+
 def categories_view(request):
     categories=Category.objects.all()
     
@@ -57,7 +58,7 @@ def category_product_list_view(request,catid):
     }
     return render(request,"core/category-product-list.html",context)
 
-# creating the vendor view
+        ################## creating the vendor view##############
 def vender_view(request):
     vendor=Vendor.objects.all()
 
@@ -65,3 +66,12 @@ def vender_view(request):
         'vendor':vendor,
     }
     return render(request,'core/vendor-list.html',context)
+
+        ############creating the details of the vendor##############
+def vender_details_view(request,venid):
+    vendor=Vendor.objects.get(vid=venid)
+
+    context={
+        'vendor':vendor
+    }
+    return render(request,'core/vendor-details-view.html',context)

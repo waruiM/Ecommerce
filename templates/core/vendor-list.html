@@ -70,10 +70,8 @@
  <!-- Product Section Begin -->
  <section class="product spad">
     <div class="container">
-        <div class="row">
-            
+        <!-- <div class="row">     -->
             <div class="col-lg-9 col-md-7">
-              
                 <!-- 
                     Header list items ie sort by etc
                     -->
@@ -104,42 +102,56 @@
                 <!-- 
                     start 
                  -->
-                 {% for v in vendor %}
+                 
                    <!-- Product Details Section Begin -->
-                <section class="product-details spad" style="padding-top: 0px;padding-bottom: 0px;border: 1px solid grey;border-radius: 12px;margin-bottom:16px;">
-                    <div class="container" style="padding: 0px;">
+                <section class="from-blog spad">
+                    <!-- <div class="container"> -->
                         <div class="row">
-                            <div class="col-lg-6 col-md-6"style="max-width: 270px;max-height: 270px;">
-                                <div class="product__details__pic" >
-                                    <div class="product__details__pic__item">
-                                        <div class="product__item__pic set-bg" data-setbg="{{v.image.url}}" style="border-radius: 12px 0px 0px 12px;">
+                            {% for v in vendor %}
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item" style="text-align: center;">
+                                    <div class="blog__item__pic">
+                                        <img src="{{v.image.url}}" alt=""  style="width: 300px;height: 300px;object-fit: cover;"  >
+                                    </div>
+                                    <div class="blog__item__text">
+                                        <ul>
+                                            <li>Since</li>
+                                            <li><i class="fa fa-calendar-o"></i> {{v.date|date:"M:Y"}}</li>
+                                            
+                                        </ul>
+                                        <ul>
+                                            <li><i class="fa fa-phone"></i> {{v.phone}}</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul>
+                                        <h3 style="font-size: 22px;font-weight: 500;text-align: left;text-decoration: underline;">{{v.title}}</h3>
+                                        <div class="product__details__rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                            <span>(18 reviews)</span>
                                         </div>
+                                        <h5 style="text-align: justify; font-size: 16px;color: grey;">{{v.description}}</h5>
+                                        <ul>
+                                            <li>Products</li>
+                                            <li>
+                                                <a href="{% url 'core:vender-details-view' v.vid %}">
+                                                    {{v.products.count}}
+                                                </a>
+                                                </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6" style="max-width:400px">
-                                <div class="product__details__text">
-                                    <h3 style="font-size: 21px;font-weight: 400;">{{v.title}}</h3>
-                                    <div class="product__details__rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                        <span>(18 reviews)</span>
-                                    </div>
-                                    <h3 style="font-size:14px;font-weight: 300;">{{v.phone}}</h3>
-                                    <p style="font-size: 13px;">{{v.description}}</p>
-                                    <p style="font-size: 13px;">{{v.description}}</p>
+                            {% endfor %}
 
-
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                </section>
+                    <!-- </div> -->
+                </section> 
                 <!-- Product Details Section End -->
-                {% endfor %}
+                
+               
                         
                 <!-- 
                     pagenation
@@ -151,7 +163,7 @@
                     <a href="#"><i class="fa fa-long-arrow-right"></i></a>
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 </section>
 <!-- Product Section End -->

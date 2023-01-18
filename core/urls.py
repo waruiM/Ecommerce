@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import index,product_list_view,categories_view,category_product_list_view,vender_view
+from core.views import index,product_list_view,categories_view,category_product_list_view,vender_view,vender_details_view
 
 
 ## setting up the url paths for the 
@@ -25,6 +25,7 @@ urlpatterns = [
 
 
     path("vendors/",vender_view, name="vender-view"),
+    path("vendors/<venid>",vender_details_view,name='vender-details-view')
 
 
 ]

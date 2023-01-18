@@ -63,6 +63,7 @@ class Vendor(models.Model):
     vid=ShortUUIDField(unique=True,length=10,max_length=25,prefix="ven",alphabet="abcdef012345")
 
     title= models.CharField(max_length=100,default="vendor 1")
+    cover_image=models.ImageField(upload_to=user_directory_path,null=True,blank=True)
     image=models.ImageField(upload_to=user_directory_path)
     description=models.TextField(null=True,blank=True,default="you need it I got you")
 
@@ -74,6 +75,7 @@ class Vendor(models.Model):
     warant_period=models.CharField(max_length=100,default="12 days") 
     # ondeletion function
     user=models.ForeignKey(User,on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True,null=True,blank=True)
 
     # naming to appear in the admin section
     class Meta:
@@ -92,8 +94,10 @@ class Product(models.Model):
     
     # ondeletion function
     user=models.ForeignKey(User,on_delete=models.CASCADE)
+
     category=models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,related_name="category")
-    vendor=models.ForeignKey(Vendor,on_delete=models.SET_NULL,null=True,related_name="vendor")
+
+    vendor=models.ForeignKey(Vendor,on_delete=models.SET_NULL,null=True,related_name="products")
 
 
     title= models.CharField(max_length=100,default="product A")
